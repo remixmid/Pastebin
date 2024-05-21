@@ -1,56 +1,36 @@
 package com.example.Pastebin.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
+@Table(name = "comment")
 public class Comment {
     @Id
-    private int id;
+    @Column(name = "comment_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int commentId;
 
+    @Column(name = "user_id")
+    private int userId;
+
+    @Column(name = "comment_text")
     private String commentText;
 
+    @Column(name = "comment_date_time")
     private LocalDateTime commentCreationTime;
 
-    private int commentLikesAmmount;
+    @Column(name = "comment_likes_amount")
+    private int commentLikesAmount;
 
-    private int getCommentDislikesAmmount;
+    @Column(name = "comment_dislikes_amount")
+    private int commentDislikesAmount;
 
-    public int getId() {
-        return id;
-    }
-
-    public String getCommentText() {
-        return commentText;
-    }
-
-    public void setCommentText(String commentText) {
-        this.commentText = commentText;
-    }
-
-    public LocalDateTime getCommentCreationTime() {
-        return commentCreationTime;
-    }
-
-    public void setCommentCreationTime(LocalDateTime commentCreationTime) {
-        this.commentCreationTime = commentCreationTime;
-    }
-
-    public int getCommentLikesAmmount() {
-        return commentLikesAmmount;
-    }
-
-    public void setCommentLikesAmmount(int commentLikesAmmount) {
-        this.commentLikesAmmount = commentLikesAmmount;
-    }
-
-    public int getGetCommentDislikesAmmount() {
-        return getCommentDislikesAmmount;
-    }
-
-    public void setGetCommentDislikesAmmount(int getCommentDislikesAmmount) {
-        this.getCommentDislikesAmmount = getCommentDislikesAmmount;
-    }
 }

@@ -1,10 +1,16 @@
 package com.example.Pastebin.models;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity
+@NoArgsConstructor
+@Getter
+@Setter
 @Table(name = "User")
 public class User {
     @Id
@@ -29,68 +35,4 @@ public class User {
 
     @Column(name = "user_website_url")
     private String userWebSiteURL;
-
-
-
-
-    public void setId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public String getLogin() {
-        return login;
-    }
-
-    public void setLogin(String login) {
-        this.login = login;
-    }
-
-    public String getPassword() { return password; }
-
-    public void setPassword(String password) { this.password = password; }
-
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String isUserEmailStatus() {
-        return userEmailStatus;
-    }
-
-    public void setUserEmailStatus(String userEmailStatus) {
-        this.userEmailStatus = userEmailStatus;
-    }
-
-    public String getUserLocation() {
-        return userLocation;
-    }
-
-    public void setUserLocation(String userLocation) {
-        this.userLocation = userLocation;
-    }
-
-    public String getUserAvatar() {
-        return userAvatar;
-    }
-
-    public void setUserAvatar(String userAvatar) {
-        this.userAvatar = userAvatar;
-    }
-
-    public String getUserWebSiteURL() {
-        return userWebSiteURL;
-    }
-
-    public void setUserWebSiteURL(String userWebSiteURL) {
-        this.userWebSiteURL = userWebSiteURL;
-    }
 }

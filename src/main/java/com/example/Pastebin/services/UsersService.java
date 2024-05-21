@@ -20,28 +20,28 @@ public class UsersService {
         this.usersRepository = usersRepository;
     }
 
-    public List<User> findAll() {
+    public List<User> findAllUsers() {
         return usersRepository.findAll();
     }
 
-    public User findOne(int id) {
-        Optional<User> foundPerson = usersRepository.findById(id);
+    public User findOneUser(int userId) {
+        Optional<User> foundPerson = usersRepository.findById(userId);
         return foundPerson.orElse(null);
     }
 
     @Transactional
-    public void save(User user) {
+    public void saveUser(User user) {
         usersRepository.save(user);
     }
 
     @Transactional
-    public void update(int id, User updatedUser) {
-        updatedUser.setId(id);
+    public void updateUser(int userId, User updatedUser) {
+        updatedUser.setUserId(userId);
         usersRepository.save(updatedUser);
     }
 
     @Transactional
-    public void delete(int id) {
-        usersRepository.deleteById(id);
+    public void deleteUser(int userId) {
+        usersRepository.deleteById(userId);
     }
 }
